@@ -1,0 +1,2 @@
+﻿import type {MetadataRoute} from 'next';import {loadCatalogue} from '../lib/commerce/catalogue';
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{if(process.env.STORE_MODE!=='production'||process.env.LAUNCH_VALIDATED!=='true')return [];const origin=process.env.PUBLIC_SITE_URL!;const {products}=await loadCatalogue();return [{url:origin,changeFrequency:'weekly',priority:1},...['shop','custom-orders','about','contact','faq'].map(path=>({url:origin+'/'+path})),...products.map(p=>({url:origin+'/products/'+p.slug}))]}

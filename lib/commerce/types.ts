@@ -1,0 +1,8 @@
+﻿export type CustomField={key:string;label:string;type:'text'|'select'|'image'|'boolean';required:boolean;maxLength?:number;fee:number;options?:string[]};
+export type Variant={id:string;product_id:string;sku:string;name:string;price:number;sale_price:number|null;active:boolean;inventory?:{on_hand:number;reserved:number}[]};
+export type CartItem={key:string;productId:string;variantId:string;quantity:number;personalisation:Record<string,string|boolean>};
+export type DeliveryZone={id:string;name:string;prefixes:string[];mode:'standard'|'express';fee:number;min_days:number;max_days:number;scheduled:boolean;active:boolean};
+export type Address={name:string;phone:string;line1:string;line2?:string;city:string;state:string;pincode:string};
+export type Order={id:string;customer_id:string|null;owner_key:string;email:string;status:string;subtotal:number;discount:number;shipping:number;tax:number;total:number;currency:string;gateway_order_id:string|null;payment_id:string|null;gateway_state:string;expires_at:string;estimated_date:string;address:Address;recipient:Record<string,string>;gift_message:string;delivery_instructions:string;created_at:string;order_items:OrderItem[];shipments?:Record<string,string>[]};
+export type OrderItem={id:string;product_id:string;variant_id:string;name:string;variant_name:string;quantity:number;unit_price:number;personalisation:Record<string,string|boolean>};
+export type Settings={commerce_enabled:boolean;policies_approved:boolean;tax_bps:number;business_name:string;business_address:string;business_email:string;gstin?:string;announcement:string;contact_email:string;site_url:string;returns_policy:string;shipping_policy:string;privacy_policy:string;terms_policy:string;newsletter_enabled:boolean};

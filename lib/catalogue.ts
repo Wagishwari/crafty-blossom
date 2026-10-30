@@ -1,0 +1,8 @@
+import type {CustomField,Variant} from './commerce/types';
+﻿export const instagram='https://www.instagram.com/crafty_blossomss/';
+export const categories=[['crochet-bags','The Bag Edit'],['little-treasures','Little Crochet Treasures'],['pouches-accessories','Pouches & Accessories'],['floral-creations','Blooms & Special Occasions'],['handmade-home','Handmade for Your Home'],['custom-creations','Custom Creations']];
+export type Photo={url:string;alt:string;source:'owner'|'instagram';source_url?:string;approved:boolean;approved_at:string;approved_by:string};
+export type Product={id:string;slug:string;name:string;description:string;category:string;price:number|null;stock:number;published:boolean;featured:boolean;images:Photo[];created_at:string;materials?:string;care?:string;collections?:string[];personalisation?:CustomField[];product_variants?:Variant[];occasion_tags?:string[];recipient_tags?:string[];popularity?:number;rating?:number;review_count?:number;production_days?:number;seo_title?:string;seo_description?:string};
+export function approvedPhoto(photo:Photo|undefined){if(!photo?.approved||!photo.approved_at||!photo.approved_by||!photo.alt)return false;if(photo.source!=='owner'&&photo.source!=='instagram')return false;if(photo.source==='instagram'&&!/^https:\/\/www\.instagram\.com\/(p|reel)\/[A-Za-z0-9_-]+\/?$/.test(photo.source_url||''))return false;return (/^\/brand\/[a-zA-Z0-9_./-]+\.(webp|avif|jpe?g|png)$/i.test(photo.url)||/^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/brand-products\/[a-zA-Z0-9_-]+\.(webp|jpe?g|png)$/i.test(photo.url))&&!photo.url.includes('..')}
+export const money=(v:number)=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR'}).format(v/100);
+

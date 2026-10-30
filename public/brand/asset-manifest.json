@@ -1,0 +1,105 @@
+{
+  "provided_by": "Brand owner via user upload",
+  "source_archive": "WhatsApp Unknown 2026-10-27 at 15.38.27.zip",
+  "approval": "User instructed use of supplied brand photos, 2026-10-27",
+  "logo": {
+    "source_file": "WhatsApp Image 2026-10-27 at 15.38.00.jpeg",
+    "crop": {
+      "left": 105,
+      "top": 478,
+      "width": 402,
+      "height": 402
+    }
+  },
+  "products": [
+    {
+      "i": 6,
+      "name": "bouquet-bag",
+      "left": 0,
+      "top": 327,
+      "width": 610,
+      "height": 679,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.03 (1).jpeg",
+      "output": "/brand/products/bouquet-bag.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 4,
+      "name": "rose-bag",
+      "left": 0,
+      "top": 260,
+      "width": 610,
+      "height": 679,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.02 (1).jpeg",
+      "output": "/brand/products/rose-bag.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 5,
+      "name": "flower-bags",
+      "left": 0,
+      "top": 368,
+      "width": 610,
+      "height": 680,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.02.jpeg",
+      "output": "/brand/products/flower-bags.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 7,
+      "name": "tulip-pouches",
+      "left": 0,
+      "top": 250,
+      "width": 610,
+      "height": 654,
+      "notch": "top",
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.03 (2).jpeg",
+      "output": "/brand/products/tulip-pouches.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 8,
+      "name": "striped-pouches",
+      "left": 0,
+      "top": 284,
+      "width": 610,
+      "height": 684,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.03.jpeg",
+      "output": "/brand/products/striped-pouches.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 2,
+      "name": "cat-pouches",
+      "left": 0,
+      "top": 455,
+      "width": 610,
+      "height": 679,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.01 (2).jpeg",
+      "output": "/brand/products/cat-pouches.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 1,
+      "name": "crochet-gajra",
+      "left": 0,
+      "top": 394,
+      "width": 540,
+      "height": 746,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.01 (1).jpeg",
+      "output": "/brand/products/crochet-gajra.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    },
+    {
+      "i": 3,
+      "name": "tulip-coasters",
+      "left": 0,
+      "top": 299,
+      "width": 610,
+      "height": 678,
+      "source_file": "WhatsApp Image 2026-10-27 at 15.38.01.jpeg",
+      "output": "/brand/products/tulip-coasters.webp",
+      "processing": "Crop only; original colours and product pixels preserved. Lossless WebP."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+﻿import type {Metadata} from 'next';import './globals.css';
+const origin=process.env.PUBLIC_SITE_URL||'http://localhost:3001';const live=process.env.STORE_MODE==='production'&&process.env.LAUNCH_VALIDATED==='true';
+export const metadata:Metadata={metadataBase:new URL(origin),title:{default:'Crafty Blossoms | Thoughtful handmade gifts',template:'%s | Crafty Blossoms'},description:'Crochet bags, thoughtful handmade treasures and personalised gifting from Crafty Blossoms.',openGraph:{title:'Crafty Blossoms',description:'Little things, made with a lot of love.',images:[{url:'/brand/products/bouquet-bag.webp',alt:'Original Crafty Blossoms crochet bouquet bag'}],type:'website'},robots:{index:live,follow:live}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}

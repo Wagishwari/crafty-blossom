@@ -1,0 +1,13 @@
+﻿import test from 'node:test';
+import assert from 'node:assert/strict';
+const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:3001';
+test('all navigation destinations render the brand',async()=>{for(const path of ['/','/shop','/wishlist','/collections/crochet-bags','/custom-orders','/about','/contact','/cart','/checkout','/faq','/track-order','/policies/shipping','/policies/returns','/policies/privacy','/policies/terms','/admin','/account']){const r=await fetch(origin+path);assert.equal(r.status,200,path);const html=await r.text();assert.match(html,/Crafty Blossoms|crafty blossoms/,path);assert.doesNotMatch(html,/unsplash|pexels|picsum|placehold\.co|lorem ipsum/i,path)}});
+test('preview catalogue only contains owner-supplied real quote-only pieces',async()=>{const r=await fetch(origin+'/api/store');assert.equal(r.status,200);const d=await r.json();assert.equal(d.configured,false);assert.equal(d.products.length,8);assert.ok(d.products.every(p=>p.price===null&&p.images.length&&p.images.every(i=>i.source==='owner')))});
+test('unconfigured enquiries never report success',async()=>{const r=await fetch(origin+'/api/store',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify({type:'enquiry'})});assert.equal(r.status,503);assert.match((await r.json()).error,/not open yet/)});
+test('administrator customer data requires server-side authorization',async()=>{const r=await fetch(origin+'/api/admin');assert.equal(r.status,401);assert.ok((await r.json()).error)});
+test('unknown route returns actual HTTP 404',async()=>{const r=await fetch(origin+'/does-not-exist');assert.equal(r.status,404)});
+test('cross-origin writes are rejected',async()=>{const r=await fetch(origin+'/api/store',{method:'POST',headers:{'Content-Type':'application/json',Origin:'https://unrelated.example'},body:'{}'});assert.ok([400,403].includes(r.status));assert.ok(!r.ok)});
+
+
+test('every supplied product page and image loads',async()=>{const {products}=await(await fetch(origin+'/api/store')).json();for(const p of products){assert.equal((await fetch(origin+'/products/'+p.slug)).status,200,p.slug);for(const image of p.images){const r=await fetch(origin+image.url);assert.equal(r.status,200,image.url);assert.match(r.headers.get('content-type'),/^image\//)}}});
+test('unknown product returns 404 and unconfigured checkout cannot claim success',async()=>{assert.equal((await fetch(origin+'/products/not-a-real-product')).status,404);const r=await fetch(origin+'/api/commerce/checkout',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:'{}'});assert.ok(r.status>=400);assert.ok((await r.json()).error)});
